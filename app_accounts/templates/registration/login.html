@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% load widget_tweaks %}
+
+{% block extra_css %}
+{{ block.super }}
+<style>
+  .form-container {
+    height: calc(100vh - 78px);
+    display: flex;
+    align-items: center;
+  }
+</style>
+{% endblock extra_css %}
+
+
+{% block content %}
+<div class="container-fluid">
+  <div class="container profile-container appbar">
+    <div class="row form-container">
+      <div class="col-4"></div>
+      <div id="menu-jk" class="col-4">
+        <div class="pro-s-cover">
+          <div class="row justify-content-between">
+            <div class="col">
+              <form method="post">
+                <div class="form-group">
+                  <input class="form-control" id="{{ form.username.name }}" placeholder="Enter Username" name="{{ form.username.name }}">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="{{ form.password.name }}" placeholder="Password" name="{{ form.password.name }}">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                {% csrf_token %}
+              </form>
+              <!-- <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="username">{{ form.username.label }}</label>
+                  {% render_field form.username class+="form-control" %}                  
+                </div>
+                <div class="form-group">
+                  <label for="password">{{ form.password.label }}</label>
+                  {% render_field form.password class+="form-control" %}                  
+                </div>
+                {% if form.errors %}
+                <p class="text-danger">
+                  Please enter a correct username and password. Note that both fields may be case-sensitive
+                </p>
+                {% endif %}
+                <br />
+                <button type="submit" class="btn btn-outline-dark">Log In</button>
+              </form> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

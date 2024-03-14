@@ -1,0 +1,12 @@
+.appbar {
+  margin-top: 0
+}
+
+.custom-invalid-feedback li {
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+}
+
+input {
+  margin-bottom: 5px;
+}

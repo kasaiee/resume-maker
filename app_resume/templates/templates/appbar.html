@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="container profile-container appbar">
+    <div class="row">
+      <div id="menu-jk" class="col">
+        <div class="pro-s-cover">
+          <div class="row justify-content-between">
+            <div class="col-4 text-left">
+              {% if user.is_authenticated %}
+              <a href="{% url 'logout' %}" class="btn btn-outline-dark">
+                Sign Out
+              </a>
+              {% else %}
+              <a href="{% url 'login' %}" class="btn btn-outline-dark">
+                Sign In
+              </a>
+              {% endif %}
+              {% if not user.is_authenticated %}
+              <a href="{% url 'app_accounts:signup' %}" class="btn btn-outline-dark">
+                Sign Up
+              </a>
+              {% endif %}
+            </div>
+            <div class="col-8 text-right">
+              {% if user.is_authenticated %}
+              <a href="{% url 'app_resume:resume' %}" class="btn btn-outline-dark">
+                Preview
+              </a>
+              {% endif %}
+              <a href="#!" class="btn btn-outline-dark">
+                Templates
+              </a>
+              <a href="{% url 'app_resume:edit' %}" class="btn btn-outline-dark">
+                Edit
+              </a>
+              <a href="#!" class="btn btn-outline-dark">
+                Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,374 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="container profile-container">
+    <form method="post">
+      <div class="row">
+        <div id="menu-jk" class="col-md-4">
+          <div class="pro-s-cover">
+            <img src='{% static "app_resume/assets/images/profile.jpg" %}' alt="" />
+            <h6>{{ user }}</h6>
+            <span>Freelancer</span>
+            <p>Web Designer</p>
+            <div class="num-box w-100 d-flex">
+              <div class="hire">
+                <b>55+</b> <br />
+                <span>Projects </span>
+              </div>
+              <div class="msg">
+                <b>7+</b> <br />
+                <span>Experiance</span>
+              </div>
+            </div>
+            <div class="msg-box d-flex">
+              <div class="hire">
+                <button type="button" class="btn btn-outline-dark">
+                  Hire
+                </button>
+              </div>
+              <div class="msg">
+                <button type="button" class="btn btn-outline-dark">
+                  Message
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="con-cover">
+            <h4>Contact</h4>
+            <ul class="row no-margin">
+              <div class="form-group">
+              {% for field in social_links_form %}
+                <input type="url" class="form-control {% if field.errors %}is-invalid{% endif %}" id="{{ field.name }}" placeholder="{{ field.label }}" name="{{ field.name }}" value="{{ field.value }}">
+                <div class="invalid-feedback custom-invalid-feedback">
+                  {% if field.errors %}<li>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
+                </div>
+                {% endfor %}
+              </div>
+            </ul>
+            <div class="cd-ro row no-margin">
+              <span>Mobile No</span>
+              <p><i class="fas fa-phone-square"></i> +1 233 232 4322</p>
+            </div>
+            <div class="cd-ro row no-margin">
+              <span>Email Addreess</span>
+              <p>
+                <i class="fas fa-envelope-square"></i> info@smarteyeapps.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          
+          <div class="data-box">
+            {{ profile_form }}
+            <div class="btn-ro row no-margin">
+              <ul class="btn-link">
+                <li>
+                  <a href=""><i class="fas fa-paper-plane"></i> Hire Me</a>
+                </li>
+                <li>
+                  <a href=""
+                    ><i class="fas fa-cloud-download-alt"></i> Download
+                    Resume</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+          {% csrf_token %}
+          
+          <div class="data-box">
+            <h2>Experiance</h2>
+            <div id="experience-form-set"></div>
+            <button id="add-more-experience" type="button" class="btn btn-outline-dark">
+              Add Another Experience
+            </button>     
+          </div>
+
+          <div class="data-box education-detail">
+            <h2>Education Details</h2>
+            <div class="service no-margin row">
+              <div class="col-sm-3 no-padding resume-dat serv-logo">
+                <h6>2013-2015</h6>
+                <p>Master Degree</p>
+              </div>
+              <div class="col-sm-9 rgbf">
+                <h5>Cambridg University</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+            </div>
+            <div class="service no-margin row">
+              <div class="col-sm-3 no-padding resume-dat serv-logo">
+                <h6>2013-2015</h6>
+                <p>Bacholers Degree</p>
+              </div>
+              <div class="col-sm-9 rgbf">
+                <h5>Anna University</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+            </div>
+            <div class="service no-margin row">
+              <div class="col-sm-3 no-padding resume-dat serv-logo">
+                <h6>2013-2015</h6>
+                <p>High School</p>
+              </div>
+              <div class="col-sm-9 rgbf">
+                <h5>A.M.H.S.S</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+            </div>
+            <div class="service no-margin row">
+              <div class="col-sm-3 no-padding resume-dat serv-logo">
+                <h6>2013-2015</h6>
+                <p>School</p>
+              </div>
+              <div class="col-sm-9 rgbf">
+                <h5>Anna University</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="data-box service-box">
+            <h2>Services</h2>
+            <div class="service no-margin row">
+              <div class="col-sm-2 no-padding serv-logo">
+                <i class="fab fa-delicious"></i>
+              </div>
+              <div class="col-sm-10 rgbf serv-det">
+                <h5>Graphic Design</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+            </div>
+            <div class="service no-margin row">
+              <div class="col-sm-2 no-padding serv-logo">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="col-sm-10 rgbf serv-det">
+                <h5>Graphic Design</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+            </div>
+            <div class="service no-margin row">
+              <div class="col-sm-2 no-padding serv-logo">
+                <i class="fab fa-chrome"></i>
+              </div>
+              <div class="col-sm-10 rgbf serv-det">
+                <h5>Graphic Design</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+            </div>
+            <div class="service no-margin row">
+              <div class="col-sm-2 no-padding serv-logo">
+                <i class="fab fa-android"></i>
+              </div>
+              <div class="col-sm-10 rgbf serv-det">
+                <h5>Graphic Design</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="data-box contact-tab">
+            <h2>Contact US</h2>
+            <div class="row no-margin">
+              <div class="col-md-12 no-padding">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176144.0450019627!2d-107.79423426090409!3d38.97644533805396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874014749b1856b7%3A0xc75483314990a7ff!2sColorado%2C+USA!5e0!3m2!1sen!2sin!4v1547222354537"
+                  frameborder="0"
+                  style="border: 0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="col-md-12">
+                <br />
+                <div class="row cont-row no-margin">
+                  <div class="col-sm-6">
+                    <input
+                      placeholder="Enter Full Name"
+                      type="text"
+                      class="form-control form-control-sm"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <input
+                      placeholder="Enter Email Address"
+                      type="text"
+                      class="form-control form-control-sm"
+                    />
+                  </div>
+                </div>
+                <div class="row cont-row no-margin">
+                  <div class="col-sm-6">
+                    <input
+                      placeholder="Enter Mobile Number"
+                      type="text"
+                      class="form-control form-control-sm"
+                    />
+                  </div>
+                </div>
+                <div class="row cont-row no-margin">
+                  <div class="col-sm-12">
+                    <textarea
+                      placeholder="Enter your Message"
+                      class="form-control form-control-sm"
+                      rows="10"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="row cont-row no-margin">
+                  <div class="col-sm-6">
+                    <button class="btn btn-sm btn-success">
+                      Send Message
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+{{ block.super }}
+<script>
+  $(document).ready(function () {
+    function getForm (index, formfield) {
+      const field = formfield?.fields
+      return `
+      <div>
+        <label for="id_form-${index}-title">Title:</label>
+
+        <input
+          type="text"
+          name="form-${index}-title"
+          class="form-control"
+          maxlength="70"
+          id="id_form-${index}-title"
+          value="${field?.title}"
+        />
+
+        <label for="id_form-${index}-description">Description:</label>
+
+        <textarea
+          name="form-${index}-description"
+          cols="40"
+          rows="5"
+          class="form-control"
+          maxlength="400"
+          id="id_form-${index}-description"
+          value="${field?.description}"
+        ></textarea>
+
+        <label for="id_form-${index}-employer">Employer:</label>
+
+        <input
+          type="text"
+          name="form-${index}-employer"
+          class="form-control"
+          maxlength="70"
+          id="id_form-${index}-employer"
+          value="${field?.employer}"
+        />
+
+        <label for="id_form-${index}-employee_start_date">Employee start date:</label>
+
+        <input
+          type="date"
+          name="form-${index}-employee_start_date"
+          class="form-control"
+          id="id_form-${index}-employee_start_date"
+          value="${field?.employee_start_date}"
+        />
+
+        <label for="id_form-${index}-employee_end_date">Employee end date:</label>
+
+        <input
+          type="date"
+          name="form-${index}-employee_end_date"
+          class="form-control"
+          id="id_form-${index}-employee_end_date"
+          value="${field?.employee_end_date}"
+        />
+      </div>
+    `
+    }
+
+    const experienceSet = {{experience_set|safe}}
+    $.each(experienceSet, function (index, value) {
+      $('#experience-form-set').append(`
+      <div id="exp-row-${index + 1}" class="row exp-row" style="flex-direction: column">
+          <div style="display: flex; flex-direction: row; justify-content: space-between">
+            <strong>Experience Form #${index + 1}</strong>
+            <a href="#!" data-index="${index + 1}" class="text-danger delete-experience">Delete</a>
+          </div>
+        ${getForm(index, value)}
+      </div>
+      `)
+    })
+
+    $('#add-more-experience').on('click', function () {
+      const formNumber = $('#experience-form-set').children().length
+      $('#experience-form-set').append(`
+        <div id="exp-row-${formNumber + 1}" class="row exp-row" style="flex-direction: column">
+          <strong>Experience Form #${formNumber + 1}</strong>
+          ${getForm(formNumber, {
+            fields: {
+              title: '',
+              description: '',
+              employer: '',
+              employee_start_date: '',
+              employee_end_date: ''
+            }
+          })}
+        </div>
+        `)
+    })
+
+    $('.delete-experience').on('click', function () {
+      const index = $(this).data('index')
+      $('#exp-row-' + index).remove()
+    })
+  })
+</script>
+{% endblock extra_js %}

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>
+      Free Dental Medical Hospital Website Template | Smarteyeapps.com
+    </title>
+
+    <link rel="shortcut icon" href='{% static "app_resume/assets/images/fav.jpg" %}' />
+    <link rel="stylesheet" href='{% static "app_resume/assets/css/bootstrap.min.css" %}' />
+    <link rel="stylesheet" href='{% static "app_resume/assets/css/fontawsom-all.min.css" %}' />
+    <link rel="stylesheet" type="text/css" href='{% static "app_resume/assets/css/style.css" %}' />
+    <link rel="stylesheet" href='{% static "app_resume/assets/css/custom.css" %}' />
+    {% block extra_css %}{% endblock extra_css %}
+  </head>
+
+  <body>
+    {% include 'templates/appbar.html' %}
+    {% include 'templates/messages.html' %}
+    {% block content %}{% endblock content %}
+  </body>
+
+  <script src='{% static "app_resume/assets/js/jquery-3.2.1.min.js" %}'></script>
+  <script src='{% static "app_resume/assets/js/popper.min.js" %}'></script>
+  <script src='{% static "app_resume/assets/js/bootstrap.min.js" %}'></script>
+  <script
+    type="application/javascript"
+    src='{% static "app_resume/assets/js/jquery-scrolltofixed-min.js" %}'
+  ></script>
+  <script src='{% static "app_resume/assets/js/script.js" %}'></script>
+  {% block extra_js %}{% endblock extra_js %}
+</html>

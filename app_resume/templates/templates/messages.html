@@ -1,0 +1,11 @@
+<div class="container-fluid" style="margin-top: 15px">
+  <div class="container profile-container appbar">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="alert {{ message.tags }} "{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
