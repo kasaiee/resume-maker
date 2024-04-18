@@ -58,17 +58,7 @@
       <div class="col-md-8">
         <div class="data-box">
           <h2>About Me</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            a urna posuere, aliquet elit in, fermentum ligula. Sed est
-            augue, molestie sed tortor sed, posuere commodo lectus. Aliquam
-            blandit eros a nibh tristique, id accumsan lacus rutrum. Mauris
-            ornare neque vitae mollis luctus. Proin malesuada quam ut dui
-            sagittis, sit amet accumsan nibh bibendum. Sed maximus sed
-            turpis a rhoncus. Vestibulum quis velit leo. Nunc laoreet
-            tincidunt congue. Quisque efficitur, erat congue volutpat
-            malesuada, erat felis finibus ex
-          </p>
+          <p>{{ user.profile.about_me }}</p>
           <div class="btn-ro row no-margin">
             <ul class="btn-link">
               <li>
@@ -85,39 +75,14 @@
         </div>
         <div class="data-box">
           <h2>Experiance</h2>
-          <div class="row exp-row">
-            <h6>Business Development</h6>
-            <span>Microsoft</span>
-            <i>Apiral 2011 - Present</i>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Aenean a urna posuere, aliquet elit in, fermentum ligula. Sed
-              est augue, molestie sed tortor sed, posuere commodo lectus.
-            </p>
-          </div>
-          <div class="row exp-row">
-            <h6>Business Development</h6>
-            <span>Microsoft</span>
-            <i>Apiral 2011 - Present</i>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Aenean a urna posuere, aliquet elit in, fermentum ligula. Sed
-              est augue, molestie sed tortor sed, posuere commodo lectus.
-            </p>
-          </div>
+          {% for experience in user.experience_set.all %}
           <div class="row exp-row last">
-            <h6>Business Development</h6>
-            <span>Microsoft</span>
-            <i>Apiral 2011 - Present</i>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Aenean a urna posuere, aliquet elit in, fermentum ligula. Sed
-              est augue, molestie sed tortor sed, posuere commodo lectus.
-            </p>
+            <h6>{{ experience.title }}</h6>
+            <span>{{ experience.employer }}</span>
+            <i>{{ experience.employee_start_date }} - {{ experience.employee_end_date }}</i>
+            <p>{{ experience.description }}</p>
           </div>
+          {% endfor %}
         </div>
 
         <div class="data-box education-detail">
