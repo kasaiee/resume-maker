@@ -19,6 +19,15 @@ class Profile(models.Model):
     google_plus = models.URLField(null=True, blank=True)
     linkedin = models.URLField(null=True, blank=True)
     github = models.URLField(null=True, blank=True)
+    is_published = models.BooleanField(default=False)
+
+    class Meta:
+        permissions = [
+            (
+                "set_published_status",
+                "Can set the status of the resume to either publish or not"
+            )
+        ]
 
 
 class Experience(models.Model):
