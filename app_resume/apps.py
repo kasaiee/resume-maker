@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from app_resume.setup_permissions import setup_advanced_user_permissions
 
 
 class AppResumeConfig(AppConfig):
@@ -7,3 +8,4 @@ class AppResumeConfig(AppConfig):
 
     def ready(self):
         import app_resume.signals
+        setup_advanced_user_permissions()

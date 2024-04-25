@@ -5,6 +5,9 @@ from django.contrib import messages
 from django.forms import formset_factory 
 from django.core import serializers
 from app_resume.helpers import get_form_set_keys, get_form_set_values
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.decorators import permission_required
+
 
 def index(request):
     return render(request, 'index.html')
@@ -12,6 +15,18 @@ def index(request):
 @login_required
 def resume(request):
     return render(request, 'resume.html')
+
+
+@login_required
+def templates(request):
+    if request.user.has_perm('auth.can_choose_template'):
+        return render(request, 'templates.html')
+    else:
+        raise PermissionDenied("You do not have permission to Enter Clients in Other Company, Be Careful")
+
+@permission_required("auth.can_choose_template", login_url='/403')
+def templates(request):
+    return render(request, 'templates.html')
 
 
 @login_required

@@ -19,11 +19,15 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from app_resume import views
+from django.views.generic import TemplateView
+
 
 app_name = 'app_resume'
 
 urlpatterns = [
     path('', views.index),
+    path('403', TemplateView.as_view(template_name="403.html")),
     path('resume', views.resume, name="resume"),
+    path('templates', views.templates, name="templates"),
     path('edit', views.edit, name="edit"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
