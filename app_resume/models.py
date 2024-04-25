@@ -53,3 +53,10 @@ class Education(models.Model):
     academy_title = models.CharField(null=True, max_length=50)
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
+
+
+class SkillTag(models.Model):
+    user = models.ManyToManyField(User)
+    title = models.CharField(null=True, max_length=50, unique=True)
+    description = models.TextField(null=True, max_length=200)
+    image = models.ImageField(upload_to='skills', null=True)

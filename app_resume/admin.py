@@ -4,6 +4,7 @@ from app_resume.models import (
   Experience,
   Skill,
   Education,
+  SkillTag
 )
 
 
@@ -11,3 +12,4 @@ admin.site.register(Profile)
 admin.site.register(Experience)
 admin.site.register(Skill)
 admin.site.register(Education)
+admin.site.register(SkillTag)
